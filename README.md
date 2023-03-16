@@ -1,4 +1,3 @@
-# FnFTraining
 # C# Essentials
 ### Basics
 - Visual Studio is the IDE for developing .NET Apps. 
@@ -48,7 +47,12 @@ using System.Data;
 using System.Data.SqlClient;
 
 ```
+8. Main is the entry point of the C# program. It is case sensitive. It must have a modifier static.
+9. The static makes the Main method to be invoked by the CLR without a need to create an instance of the class. 
+10. Main can have only string Array as its argument. It can have either void or int as its return type. 
+11. The App terminates when the Main Function completes its execution. 
 
+   
 
 
 
