@@ -51,6 +51,49 @@ using System.Data.SqlClient;
 9. The static makes the Main method to be invoked by the CLR without a need to create an instance of the class. 
 10. Main can have only string Array as its argument. It can have either void or int as its return type. 
 11. The App terminates when the Main Function completes its execution. 
+12. Console is a static class defined in .NET Framework that represents the Output Window of the Application. Its WriteLine method is used to write a text or any data onto the Console Window.
+13. Ctrl+Shift+B is used to build the Project and Ctrl+F5 is used to execute the Application. F5 is used to debug the Application. 
+
+#### Reading and Writing on Console.
+1. WriteLine method is used to display a Stream of Text on the Console Window. 
+2. Anything U place as arg to the WriteLine will be displayed on the Console Window. Internally the value of the arg will be converted to string and displayed on the Window. 
+3. Inputs are always taken as String only. The ReadLine method is used to take inputs from the Console Window. It returns string. 
+4. Read method of the Console is used to take a single char and return its ascii value. Write method is similar to WriteLine but will not move itself to the next line. 
+5. var is a Implicit typed variable to store any kind of data in it. var is a convinient way of creating local variables in C#. 
+
+#### Data types in C#.
+1. C# gets its data types from the Common Type System of the .NET Framework. 
+2. As .NET Framework was designed to work on multiple languages, it provided a common data type system for all the programming languages of .NET. This is called as CTS(Common Type System). 
+3. C# provides keywords for the data types of the CTS. 
+4. The .NET Type system has broadly classified the data types into 2 parts:
+	- Value Types: Primitive and store the value in them
+	- Reference Types: Classes where the value will be the address of the location of the data instead of the data itself.
+5. In value types we have the following types:
+	- Integral Types: byte(Byte), short(Int16), int(Int32), long(Int64). 
+	- Floating Types: float(Single), double(Double), decimal(Decimal).
+	- Other types: char(Char), bool(Boolean)
+	- User Defined Types: struct, Enums, DataTime.
+6. All structs in .NET are value types. 
+7. All classes are reference types.
+	- There is a datatype called object(Object) in .NET that refers to Universal data type. 
+	- object is a reference type. 
+8. All CTS types are defined under System Namespace. 
+9. We organize the code into smaller functions and call them in the Main Program. 
+10. All primitive data types have functions and consts to get info about it. As all Value types are structs, they have functions and fields which can give some info  about the type. 
+11. Data Conversions in C# are either implicit or explicit. Longer ranged data types store the shorter range types implicitly. But the reverse is not possible. In that case, U should type cast the data. Casting is explicit. U can use Convert class to convert any type to another in C#.
+12. DateTime is a Value type that stores the Date and Time. DateTime.Now API is used to get the System Date and Time. It has other APIs to get different parts of the DateTime object. Its Parse method is used to convert a string to a valid DateTime. The String should be in the format identified by the System. 
+
+#### Enums in C#.
+- Enums are Named constants. They allow to store integral values by names represented like a group. Months of an Year could be grouped into Enum which makes the user enter any one of the specified values. This ensures that the user will not enter value that is not recognized by UR Program. 
+- Enum is a UDT, so U should declare with Values and then consume it, 
+
+
+
+
+
+
+
+
 
    
 
