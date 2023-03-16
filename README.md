@@ -85,7 +85,9 @@ using System.Data.SqlClient;
 
 #### Enums in C#.
 - Enums are Named constants. They allow to store integral values by names represented like a group. Months of an Year could be grouped into Enum which makes the user enter any one of the specified values. This ensures that the user will not enter value that is not recognized by UR Program. 
-- Enum is a UDT, so U should declare with Values and then consume it, 
+- Enum is a UDT, so U should declare with Values and then consume it.
+- System.Enum class can be used to get Info about the Enum Values at runtime and do conversions from string to enum types.
+- <b>typeof</b> operator is used to get the Type Information of the Type in C#.
 
 
 
