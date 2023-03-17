@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpBasics.Ex03EnumsExample</StartupObject>
+    <StartupObject>CSharpBasics.Ex08Methods</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,11 +48,17 @@
   <ItemGroup>
     <Compile Include="Ex02DataTypes.cs" />
     <Compile Include="Ex03EnumsExample.cs" />
+    <Compile Include="Ex04ArraysExample.cs" />
+    <Compile Include="Ex05DynamicArrayExample.cs" />
+    <Compile Include="Ex06ClassesDemo.cs" />
+    <Compile Include="Ex07Properties.cs" />
+    <Compile Include="Ex08Methods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Assignments.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
