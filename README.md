@@ -85,7 +85,34 @@ using System.Data.SqlClient;
 
 #### Enums in C#.
 - Enums are Named constants. They allow to store integral values by names represented like a group. Months of an Year could be grouped into Enum which makes the user enter any one of the specified values. This ensures that the user will not enter value that is not recognized by UR Program. 
-- Enum is a UDT, so U should declare with Values and then consume it, 
+- Enum is a UDT, so U should declare with Values and then consume it.
+- System.Enum class can be used to get Info about the Enum Values at runtime and do conversions from string to enum types.
+- <b>typeof</b> operator is used to get the Type Information of the Type in C#.
+
+#### Arrays in C#.
+- All arrays in C# are objects of a class called System.Array. This class has Functions and Properties to get info about the array object. 
+- Like other programming languages, array elements are accessed using [] operator.
+- The index will get the value of the array in that position. 
+- The no of elements in the array can be obtained using Length property of the Array class.
+- Rank property is used to get the dimensions of the Array. 
+- GetLength() gets the length of the specified dimension of the Array. The dimension index is passed as argument. First dimension is 0.
+- Array class has static methods that can give more information about the Arrays. It can be used to dynamically create Array objects. Refer the methods CreateInstance for creating instances of Arrays dynamically. 
+- Copy, CopyTo and Clone methods are used to copy the contents of one array into another.
+
+## Classes and objects
+- Class is a reference type in .NET. it is instantiated using new operator. 
+- Constructor is used to inject the dependencies for the object before it is fully operational. 
+- Constructor is like a function that can take arguments but will not have return type. The name of the function will be the name of the class.
+- Data for the class will be usually private. Private members can be refered only within the class scope. Not the object scope. 
+- We can use properties as accessors to the data. U can have get/set or both accessors for the data. 
+- Methods are functions that are used to manipulate the data of the Class. This could setting new data, updating existing data or deleting data. Methods are usually public but can be private or any other access specifier based on the requirement. Private methods are created for better modularity purposes.
+- Methods in C# are of 2 kinds:Static and Instance based. 
+- There are no global methods in C#, so we use static methods instead as they can be called by the class name without a need for any instance creation. 
+- U cannot call instance methods from static methods unless U create an instance of the class. However, U can call the static methods from the instance methods.
+- Method Parameters are default pass by value. U can still pass them by reference using ref keyword, out keyword.
+- out parameters are set by the function, so there is no need to initialize the values before passing it into the function. 
+- params keyword is used in a function if U want to pass variable no args to the function. 
+
 
 
 
