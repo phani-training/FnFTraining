@@ -105,6 +105,8 @@ using System.Data.SqlClient;
 - Constructor is like a function that can take arguments but will not have return type. The name of the function will be the name of the class.
 - Data for the class will be usually private. Private members can be refered only within the class scope. Not the object scope. 
 - We can use properties as accessors to the data. U can have get/set or both accessors for the data. 
+
+#### Methods
 - Methods are functions that are used to manipulate the data of the Class. This could setting new data, updating existing data or deleting data. Methods are usually public but can be private or any other access specifier based on the requirement. Private methods are created for better modularity purposes.
 - Methods in C# are of 2 kinds:Static and Instance based. 
 - There are no global methods in C#, so we use static methods instead as they can be called by the class name without a need for any instance creation. 
