@@ -25,7 +25,7 @@ namespace CSharpBasics
         {
             private Employee[] _employees;
 
-            private Employee copy(Employee copy)
+            public static Employee copy(Employee copy)
             {
                 var emp = new Employee();
                 emp.EmployeeId = copy.EmployeeId;
@@ -129,7 +129,7 @@ namespace CSharpBasics
             bool processing = true;
             do
             {
-                int choice = MyConsole.GetNumber(MENU));
+                int choice = MyConsole.GetNumber(MENU);
                 processing = processMenu(choice);
             } while (processing);
         }
