@@ -1,11 +1,8 @@
 ﻿using CSharpBasics.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CSharpBasics.Entities;
-using CSharpBasics.Repository;
+using CSharpBasics.Common;
+
 namespace CSharpBasics
 {
     namespace Entities
@@ -38,9 +35,38 @@ namespace CSharpBasics
                 emp.EmployeeEmail = copy.EmployeeEmail;
                 return emp;
             }
+
+            public void DeleteEmployee(int id)
+            {
+                for (int i = 0; i < _employees.Length; i++)
+                {
+                    if ((_employees[i] != null) && (_employees[i].EmployeeId == id))
+                    {
+                        _employees[i] = null;//We dont have delete operator, so set to null
+                        return;
+                    }
+                }
+                Console.WriteLine("No Matching Record found to delete");
+            }
+            public void UpdateEmployee(Employee emp)
+            {
+                //Iterate thru the array...
+                for (int i = 0; i < _employees.Length; i++)
+                {
+                    //Find the matching Emp based on Id.
+                    if ((_employees[i] != null) && (_employees[i].EmployeeId == emp.EmployeeId))
+                    {
+                        _employees[i] = copy(emp);
+                        return;//exit the function and no further iteration is required. 
+                    }
+                }
+                Console.WriteLine("No record was found to update");
+            }
             public EmployeeRepo(int size)
             {
                 _employees = new Employee[size];
+                _employees[0] = new Employee { EmployeeEmail = "test1@gmail.com", EmployeeId = 111, EmployeeName = "Phaniraj", EmployeePhone = 9945205684, EmployeeSalary = 56000 };
+                _employees[1] = new Employee { EmployeeEmail = "test2@gmail.com", EmployeeId = 112, EmployeeName = "Ramesh", EmployeePhone = 9449184401, EmployeeSalary = 46000 };
             }
 
             public EmployeeRepo() : this(0)
@@ -67,7 +93,26 @@ namespace CSharpBasics
 
             public Employee[] GetAllEmployees()
             {
-                return _employees;
+                Employee[] array = new Employee[0];
+                foreach (var emp in _employees)
+                {
+                    if(emp != null)
+                    {
+                        var temp = (Employee[])array.Clone();
+                        if (temp.Length == 0)
+                        {
+                            array = new Employee[1];//Only for the first element...
+                            array[0] = emp;
+                        }
+                        else
+                        {
+                            array = new Employee[temp.Length + 1];
+                            Array.Copy(temp, array, temp.Length);
+                            array[array.Length - 1] = emp;
+                        }
+                    }
+                }
+                return array;
             }
         }
     }
@@ -84,8 +129,7 @@ namespace CSharpBasics
             bool processing = true;
             do
             {
-                Console.WriteLine(MENU);
-                int choice = int.Parse(Console.ReadLine());
+                int choice = MyConsole.GetNumber(MENU));
                 processing = processMenu(choice);
             } while (processing);
         }
@@ -113,10 +157,7 @@ namespace CSharpBasics
             Employee[] records = _repo.GetAllEmployees();
             foreach(var emp in records)
             {
-                if(emp != null)
-                {
-                    displayRecord(emp);
-                }
+                displayRecord(emp);   
             }
         }
 
@@ -128,20 +169,11 @@ namespace CSharpBasics
         private static void addingNewEmployee()
         {
             var emp = new Employee();
-            Console.WriteLine("Enter the Id");
-            emp.EmployeeId = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the Name of the Employee");
-            emp.EmployeeName = Console.ReadLine();
-
-            Console.WriteLine("Enter the Email Address of the Employee");
-            emp.EmployeeEmail = Console.ReadLine();
-
-            Console.WriteLine("Enter the Contact no of the Employee");
-            emp.EmployeePhone = long.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the Salary of the Employee");
-            emp.EmployeeSalary = int.Parse(Console.ReadLine());
+            emp.EmployeeId = MyConsole.GetNumber("Enter the Id");            
+            emp.EmployeeName = MyConsole.GetString("Enter the Name of the Employee");
+            emp.EmployeeEmail = MyConsole.GetString("Enter the Email Address of the Employee");
+            emp.EmployeePhone = MyConsole.GetLong("Enter the Contact no of the Employee");
+            emp.EmployeeSalary = MyConsole.GetNumber("Enter the Salary of the Employee");
             _repo.AddNewEmployee(emp);
             Console.WriteLine("Employee added successfully");
         }
