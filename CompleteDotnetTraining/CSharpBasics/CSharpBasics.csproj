@@ -33,11 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpBasics.Ex08Methods</StartupObject>
+    <StartupObject>CSharpBasics.Ex10CalcExample</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ex02DataTypes.cs" />
-    <Compile Include="Ex03EnumsExample.cs" />
-    <Compile Include="Ex04ArraysExample.cs" />
-    <Compile Include="Ex05DynamicArrayExample.cs" />
-    <Compile Include="Ex06ClassesDemo.cs" />
-    <Compile Include="Ex07Properties.cs" />
-    <Compile Include="Ex08Methods.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Ex10CalcExample.cs" />
+    <Compile Include="Common\MyConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

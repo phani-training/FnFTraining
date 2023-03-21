@@ -103,6 +103,8 @@ using System.Data.SqlClient;
 - Class is a reference type in .NET. it is instantiated using new operator. 
 - Constructor is used to inject the dependencies for the object before it is fully operational. 
 - Constructor is like a function that can take arguments but will not have return type. The name of the function will be the name of the class.
+- Constructors can be many for one class.(Constructor overloading).  U can call one constructor from another using this operator which refers the current instance at Runtime. The syntax will be at the constructor : this(args). Refer the example. 
+- It is a recommended practise to have a default constructor(Constructor with no args) and then followed by UR Requirment based Constructors. 
 - Data for the class will be usually private. Private members can be refered only within the class scope. Not the object scope. 
 - We can use properties as accessors to the data. U can have get/set or both accessors for the data. 
 
