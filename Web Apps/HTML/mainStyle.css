@@ -1,0 +1,55 @@
+body{
+    font-size: 20pt;
+}
+div.area{
+    background-color: beige;
+    color:brown;
+    display: inline-block;
+    width: 48%; 
+    padding: 5px;
+    margin-left: 5px;
+    margin-bottom:5px;
+    vertical-align: top;
+ }
+ h1{
+    text-align: center;
+    background-color: burlywood;
+    color: maroon;
+    padding: 45px;
+ }
+ img{
+    width: 45%;
+    height: 150px;
+ }
+ tr:nth-child(even){
+    background-color: coral;
+    color: white;
+ }
+ tr:nth-child(odd){
+    background-color: darkgoldenrod;
+    color: white;
+ }
+ th{
+    background-color: bisque;
+    color: red;
+ }
+
+ nav{
+    background-color: darkseagreen;
+    color:darkgreen;
+    padding: 10px;
+    margin:10px;
+    text-align: center;
+ }
+
+ a{
+    background-color: white;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+ }
+
+ a:hover{
+    background-color: black;
+    color: white;
+ }

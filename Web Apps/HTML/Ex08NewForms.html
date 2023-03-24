@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User registration Form</h1>
+    <hr>
+    <form>
+        <p>
+            <input type="number" placeholder="Enter from 1 to 99" max="99" min="1" id="txtId" width="300px"/>
+        </p>
+        <p>
+            <input type="email" placeholder="Enter Email Address"/>
+        </p>
+        <p>
+            Enter the date of Birth:
+            <input type="date"/>
+        </p>
+        <p>
+            Select UR Hobbies:
+            <input type="checkbox" id="ckSports">Sports
+            <input type="checkbox" id="ckTravel">Travel
+            <input type="checkbox" id="ckPaint">Painting
+            <input type="checkbox" id="ckAdventure">Adventure
+            <input type="checkbox" id="ckGarden">Gardening
+            <input type="checkbox" id="ckRead">Reading
+            <input type="checkbox" id="ckMovies">Movies
+        </p>
+
+        <p>
+            Select UR Fav Actor:
+            <input type="radio" name="rdActor">Tom Cruise
+            <input type="radio" name="rdActor">Danny Day Lewis
+            <input type="radio" name="rdActor">Denzel Washington
+            <input type="radio" name="rdActor">Leonardo De Caprio
+            <input type="radio" name="rdActor">Slivester Stalone
+            <input type="radio" name="rdActor">Bruce Willis
+            <input type="radio" name="rdActor">Al Pacino
+            <input type="radio" name="rdActor">Robert Di Nero
+            <input type="radio" name="rdActor">Jackie Chan
+        </p>
+
+        <p>
+            Select UR State In India:
+            <datalist id="dtStates">
+                  <option>Karnataka</option>  
+                  <option>Tamilnadu</option>  
+                  <option>Kerala</option>  
+                  <option>Goa</option>  
+                  <option>Telangana</option>  
+                  <option>Andhra Pradesh</option>  
+            </datalist>
+            <input type="text" list="dtStates"/>
+        </p>
+        <p>Select UR Fav color:
+            <input type="color"/>
+        </p>
+    </form>
+</body>
+</html>

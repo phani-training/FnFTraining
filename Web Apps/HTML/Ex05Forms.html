@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <script>
+        function onClick(){
+            const v1 = parseFloat(document.getElementById("txtFirstValue").value);
+            const v2 = parseFloat(document.getElementById("txtSecondValue").value);
+            const operand = document.getElementById("slOperand").value;
+            let res =0;
+            switch (operand) {
+                case "Add":
+                    res = v1 + v2;
+                    break;
+                case "Subtract":
+                    res = v1 - v2;
+                    break; 
+                case "Multiply":
+                    res = v1 * v2;
+                    break; 
+                case "Divide":
+                    res = v1 / v2;
+                    break;
+                default:
+                    res =0;
+                    break;
+            }
+            document.getElementById("spResult").innerText = res;
+        }
+    </script>
+</head>
+<body>
+    
+    <h1> Forms Application</h1>
+    <div>
+        <nav>
+            <div>
+                <a href="ExMainPage.html">Home</a>
+                <a href="Ex01BasicPage.html">First Example</a>
+                <a href="Ex02Images.html">Images Example</a>
+                <a href="Ex03Lists.html">Lists Example</a>
+                <a href="Ex04Tables.html">Tables Example</a>
+                <a href="#">Calc Example</a>
+            </div>
+        </nav>
+    </div>
+    <form>
+        <p>
+            <input id="txtFirstValue" type="number" placeholder="First Value"/>
+            <select id="slOperand">
+                <option></option>
+                <option>Add</option>
+                <option>Subtract</option>
+                <option>Multiply</option>
+                <option>Divide</option>
+            </select>
+            <input id="txtSecondValue" type="number" placeholder="Second Value"/>
+            <button onclick="onClick()" type="button">=</button>
+            <span id="spResult"></span>
+        </p>
+    </form>
+</body>
+</html>

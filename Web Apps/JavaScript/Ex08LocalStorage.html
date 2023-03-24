@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Ex07EmpDatabase.js"></script>
+    <title>Document</title>
+    <script>
+           let fruits = [];//create a blank Array.
+
+            window.addEventListener("load", function(){
+                if(localStorage.getItem("Data") != undefined){
+                    $get("ulData").innerHTML ="";
+                      fruits = JSON.parse(localStorage.getItem("Data"));
+                      for (const item of fruits) {
+                          $get("ulData").innerHTML += "<li>" + item + "</li>" ;                        
+                      }
+                }    
+            $get("btnSave").addEventListener("click", function(){
+            let value = $get("txtInput").value;
+            fruits.push(value);
+            localStorage.setItem("Data", JSON.stringify(fruits));
+            alert("The Data is set");
+            })    
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Store the data:</h2>
+        <p>
+            <input id="txtInput" placeholder="Enter UR Fav Fruit"/>
+            <button id="btnSave">Save</button>
+        </p>
+    </div>
+    <div>
+        <h2>Already Stored Fruits</h2>
+        <hr>
+        <ul id="ulData">
+
+        </ul>
+    </div>
+    <div>
+        <h2>Points to remember</h2>
+        <hr>
+        <ul>
+            <li>LocalStorage is available on latest browsers only</li>
+            <li>It is used to store the data in the form of strings</li>
+            <li>It can be removed by the user at any point of time, not secured</li>
+            <li>The data is stored locally in the client's machine, so it is not centralized and data is not shared among the Users</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <script src="./Ex07EmpDatabaseWithLocalStorage.js"></script>
+    <script>
+           let flag = false;
+           let db = new EmpRepo(); //create the instance of the Repo class.
+           function getDetails(id){
+                const foundEmp = db.findEmployee(id);
+                $get("Id").disabled = true;
+                $get("Id").value = foundEmp.id;
+                $get("Name").value = foundEmp.name;
+                $get("Phone").value = foundEmp.phone;
+                $get("Email").value = foundEmp.email;
+                flag = true;
+           }
+           function displayAll(){
+            const table =  $get("tblRecords");
+            table.innerHTML = "<tr><th>Employee Id</th><th>Employee Name</th><th>Options</th>";
+            const data = db.getAllEmployees();
+            for(const emp of data){
+                const rec = `<tr><td>${emp.id}</td><td>${emp.name}</td><td><a href
+                    ="#" onclick="getDetails(${emp.id})">Edit</a><a href="#">Delete</a></td>`
+                table.innerHTML += rec; 
+            }    
+           }
+
+           function clear(){
+            $get("Id").value = "";
+            $get("Name").value = "";
+            $get("Email").value = "";
+            $get("Phone").value = "";
+           }
+           //Menu Handler for the link
+           function onAddRecord(){
+            $get("Id").disabled = false; 
+            flag = false;
+            clear();
+           } 
+           //User enters all the values and clicks the Add New Button
+           function onAddNew(){
+            debugger;
+            let id = parseInt($get("Id").value);
+            let name = $get("Name").value;
+            let email = $get("Email").value;
+            let phone = $get("Phone").value;
+            const newEmp = new Employee(id, name, email, phone);
+            if(flag){
+                db.updateEmployee(newEmp);
+                flag = false;
+            }
+            else{
+                db.addEmployee(newEmp);                
+            }
+            alert("Employee added successfully");
+            displayAll();
+           }
+            function initialize(){
+                
+
+                const allLinks = document.getElementsByTagName("a");
+                const allRecLink = allLinks[0];
+                allRecLink.addEventListener("click", displayAll);
+
+                const addRecLink =allLinks[1];
+                addRecLink.addEventListener("click", onAddRecord);
+
+                const allButtons = document.getElementsByTagName("button");
+                allButtons[1].addEventListener("click", onAddNew)
+                allButtons[0].addEventListener("click", onAddNew)
+            }
+
+           window.addEventListener("load", initialize);
+    </script>
+</head>
+<body>
+    <h1>Employee Monitoring System</h1>
+    <nav>
+        <ul>
+            <li><a class="link" href="#">All Records</a></li>
+            <li><a class="link" href="#">Add New Record</a></li>
+            <li><a class="link" href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="card">
+        <h2>List of Employees with Us!!!</h2>
+        <hr>
+        <div>
+            <table border="1" id="tblRecords"></table>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Employee Details</h2>
+        <hr>
+        <p><input type="number" id="Id"placeholder="Enter the Id"> </p>
+        <p><input id="Name"placeholder="Enter the Name"></p>
+        <p><input id="Email" placeholder="Enter the Email Address"></p>
+        <p><input id="Phone" type="number" placeholder="Enter the Contact No"></p>
+        <p style="text-align: center;">
+            <button>Add New Record</button>
+            <button>Update Record</button></p>
+    </div>
+</body>
+</html>
