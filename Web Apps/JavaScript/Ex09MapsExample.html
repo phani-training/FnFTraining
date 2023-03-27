@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>Maps in JS</title>
+    <script>
+        ///////////////////////Concept of the Map
+        //const data = new Map();
+        // data.set("Phaniraj", "apple123");//set is the API used to add the pair to the collection. 
+        // if(data.has("Phaniraj")){
+        //     alert("User already exists");
+        // }
+        ////////////////////////Implementation of the Login Page//////////
+        const users = new Map();
+        //For registration   
+        function signUp(uname, pwd) {
+            if(users.has(uname)){
+                alert("User already Exists");
+                return;
+            }
+            users.set(uname,  pwd);
+            alert("THe User is registered with Us!!!");            
+        }
+        //For Login Feature
+        function signIn(uname, pwd) {
+            if(!users.has(uname)){
+                alert("User name is not available")
+                return;
+            }
+            if(users.get(uname) == pwd){
+                alert("Welcome to the User!!!")
+            }else{
+                alert("Password is wrong!!!");
+            }
+        }
+
+        function hideCards(){
+            const cards = document.getElementsByClassName("card")
+            cards[0].style.visibility = "hidden";
+            cards[1].style.visibility = "hidden";
+        }
+        window.addEventListener("load", function(){
+            hideCards();
+            const links = document.getElementsByTagName("a");
+            //Registration block
+            links[0].addEventListener("click", function(){
+                hideCards();
+                document.getElementsByClassName("card")[1].style.visibility = "visible";
+                document.getElementsByTagName("button")[1].addEventListener("click", function(){
+                    const uname = document.getElementById("txtNewName").value;
+                    const pwd = document.getElementById("txtNewPwd").value;
+                    signUp(uname, pwd);
+                })
+            })
+            //Login block
+            links[1].addEventListener("click", function(){
+                hideCards();
+                document.getElementsByClassName("card")[0].style.visibility = "visible";
+                document.getElementsByTagName("button")[0].addEventListener("click", function(){
+                    const uname = document.getElementById("txtUserName").value;
+                    const pwd = document.getElementById("txtPassword").value;
+                    signIn(uname, pwd);
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Maps in JavaScript</h1>
+    <hr>
+    <nav>
+        <a href="#">New User? Sign up</a> 
+        <a href="#">Sign in</a>
+        <span id="spRegisteredUsers"></span> 
+    </nav>
+    <div class="card">
+        <h2>Sign In Page</h2>
+        <p>Enter the UserName:
+            <input type="text" id="txtUserName" placeholder="Enter the Username"
+        </p>
+        <p>Enter the Password:
+            <input type="password" id="txtPassword" placeholder="Enter the Password"
+        </p>
+        <p>
+            <button>Login</button>
+        </p>
+    </div>
+    <div class="card">
+        <h2>Registration Page</h2>
+        <hr/>
+        <p>Enter the UserName:
+            <input type="text" id="txtNewName" placeholder="Enter the Username"
+        </p>
+        <p>Enter the Password:
+            <input type="password" id="txtNewPwd" placeholder="Enter the Password"
+        </p>
+        
+        <p>
+            <button>Register</button>
+        </p>
+    </div>
+    <div>
+        <h2>Points to remember</h2>
+        <hr>
+        <ul>
+            <li>Maps are the way to store the data in the form of Key-Value Pairs</li>
+            <li>It was introduced in ES 6. </li>
+            <li>Maps are the fastest way to extract data in a large collection. Unlike other Data structures, U dont have to iterate thru the collection, instead U can access them using the key which internally behaves like an index. The key and the value could be of any data type</li>
+            <li>The Key is unique to the collection and the value need not be</li>
+            <li>Examples of Key-Value pairs are Username-Password, ATMCard-PIN no and many more such structures where U need the data as pairs.</li>
+        </ul>
+    </div>
+</body>
+
+</html>

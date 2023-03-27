@@ -37,7 +37,9 @@ class EmpRepo{
     }
     updateEmployee = (emp) =>{
         this.getData();
-        const index = this.data.findIndex((e)=>e.id == emp.id);
+        const index = this.data.findIndex(function(e){
+            return e.id == emp.id;
+        })    
         if(index === -1)
           throw "Employee not found";
         this.data.splice(index, 1, emp);

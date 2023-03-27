@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const BaseClass = function(){
+        //     this.someFunc = function(){
+        //         alert("someFunc of the Base class")
+        //     }
+        // };
+        //Singleton object    
+        const emp = {
+            empName : "Phaniraj", 
+            empAddress : "Bangalore",
+            display : function(){
+                return `${this.empName} from ${this.empAddress}`
+            }
+        }
+
+        const derivedEmp = {
+            otherFunc : function(){
+                return "Other func"
+            }
+        }
+        //object is associated with the other object using __proto___
+        derivedEmp.__proto__ = emp; 
+        alert(derivedEmp.display());//Base function is called
+        alert(derivedEmp.otherFunc());//Derived function is called. 
+
+        // const DerivedClass = function(){
+        //     this.derivedFunc = ()=> alert("Derived Func of the Derived Class")
+        // }
+        // Object.setPrototypeOf(BaseClass, DerivedClass);
+        // const obj = new DerivedClass();
+        // obj.someFunc();
+        // obj.derivedFunc();
+
+        class BaseClass {
+            someFunc(){
+                alert("someFunc is called")
+            }
+        }
+
+        class DerivedClass extends BaseClass{
+            derivedFunc(){
+                alert("derived Func is called")
+            }
+        }
+
+        let obj = new DerivedClass();
+        obj.someFunc();
+        obj.derivedFunc();
+    </script>
+</body>
+</html>

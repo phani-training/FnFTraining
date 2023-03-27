@@ -11,12 +11,40 @@
         <script src="./Ex02DataTypes.js"></script>
         <script src="./Ex03Functions.js"></script> 
         <script src="./Ex04Arrays.js"></script>
+        <script src="./Ex06Classes.js"></script>
+        <script src="./Ex11CallBackFunctions.js"></script>
+        <script src="./Ex12DateTimeFunctions.js"></script>
+        <script>
+            function onDisplay(){
+                const value = document.getElementById("txtDate").value;
+                const dateObj = new Date(value);
+                displayDate(dateObj);
+            }
+
+            function onSetTime(){
+                const currentDate = new Date();
+                displayTime(currentDate);
+            }
+            setInterval(onSetTime, 1000);//Calls the onsetTime func for every sec..
+        </script>
+        <script src="./Ex13AsyncFunctions.js"></script>
     -->
-       <script src="./Ex06Classes.js"></script>
+    <script src="./Ex14NewFeatures.js"></script>
+    <script>
+        document.addEventListener("load", ()=>{
+            createDiv()
+        });
+    </script>
 </head>
 <body>
-    <div class="area">
-        <h1>Basics of JavaScript</h1>
+    <div class="area" id="divArea">
+        <h1>Concepts of JavaScript</h1>
     </div>
+    <!--Example on Date and Time, use this only for the date time example 
+        <div>
+            <input type="date" id="txtDate"/>
+            <button onclick="onDisplay()">Display Date</button>
+        </div>
+        <div id="divTime"></div> -->
 </body>
 </html>
