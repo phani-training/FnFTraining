@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.min.js"></script>
+    <script>
+        // $(document).ready(()=>{
+        //     alert("Testing jQuery");
+        // })
+
+        // $(document).ready(function(){
+        //     jQuery("div").click(function(){
+        //         $(this).css("background-color", "red");
+        //         $(this).css("color", "white");
+        //     }).mousemove(function(){
+        //         $(this).css("font-size", "40pt");
+        //     }).mouseleave(function(){
+        //         $(this).css("font-size", "18pt")
+        //     });    
+        // })
+
+        const func = function(){
+            $("div").click(function(){
+                $(this).hide(2000);
+            })
+
+            $("a").click(function(){
+                $("div").show(2000);
+            })
+        }
+        $(document).ready(func);
+
+    </script>
+    <style>
+        div{
+            background-color: lightgreen;
+            border: 2px solid blueviolet;
+            width: 250px;
+            height: 200px;
+            display: inline-block;
+            margin: 5px;
+            box-shadow: 5px 5px 5px blue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Show All</a>
+    </nav>
+    <div>
+        <p>Div 1</p>
+    </div>
+    <div>
+        <p>Div 2</p>
+    </div>
+    <div>
+        <p>Div 3</p>
+    </div>
+</body>
+</html>

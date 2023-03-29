@@ -1,0 +1,16 @@
+{
+  "employees": [
+    {
+      "id": 111,
+      "empName": "Phaniraj",
+      "empAddress": "Bangalore",
+      "empSalary": 56000
+    },
+    {
+      "id": 222,
+      "empName": "Mohammed",
+      "empAddress": "Shivamogga",
+      "empSalary": 56000
+    }
+  ]
+}

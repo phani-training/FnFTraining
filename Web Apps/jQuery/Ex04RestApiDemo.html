@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./lib/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="commonStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./RestApi.js"></script>
+    <script>
+        function onAddButton(){
+            //create the emp object
+            const emp = {};
+            emp.id = parseInt($("#txtId").val());
+            emp.empName = $("#txtName").val();
+            emp.empAddress =$("#txtAddress").val();
+            emp.empSalary = $("#txtSalary").val();
+            addNewEmployee(emp);
+        }
+
+        function onUpdateRecord(){
+            const id = $("#txtId").val();
+            const emp = {};
+            emp.empName = $("#txtName").val();
+            emp.empAddress =$("#txtAddress").val();
+            emp.empSalary = $("#txtSalary").val();
+            updateEmployee(id, emp);
+            
+        }
+        $(document).ready(function(){
+            $("a:first").click(getAllRecords);
+            $("nav>a:last").click(()=>{
+                const id = prompt("Enter the Id of the Employee to delete");
+                deleteEmployee(id);
+            })
+            $("button:eq(0)").click(onAddButton)
+            $("button:eq(1)").click(onUpdateRecord)
+        })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="h1">Employee Management Software</h1>
+    <nav>
+        <a href="#">Show Employees</a>
+        <a href="#">Add New Employee</a>
+        <a href="#">Delete Employee</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-bordered table-stripped">
+                    <tr>
+                        <th>Employee Id</th>
+                        <th>Employee Name</th>
+                        <th>Employee Address</th>
+                        <th>Employee Salary</th>
+                        <th>Options</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <h2>Add New Employee</h2>
+                <p>
+                    <label for="txtId">Enter the Id</label>
+                    <input type="number" id="txtId" class="form-control">
+                </p>
+                <p>
+                    <label for="txtName">Enter the Name</label>
+                    <input id="txtName" class="form-control">
+                </p>
+                <p>
+                    <label for="txtAddress">Enter the Address</label>
+                    <input type="text" id="txtAddress" class="form-control">
+                </p>
+                <p>
+                    <label for="txtSalary">Enter the Salary</label>
+                    <input type="number" id="txtSalary" class="form-control">
+                </p>
+                <p>
+                    <button class="btn btn-primary">Add Employee</button>
+                    <button class="btn btn-success">Update Employee</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.min.js"></script>
+    <script>
+        function init(){
+            $("div").hide();
+            $("a").click(function(){
+                $("div").show(2000);
+            })
+            $("button").click(function(){
+               //get all the inputs from the user
+               const obj = {};
+               obj.id = $("input:first").val();
+               obj.name = $("input:first").next().val();
+               obj.email = $("input:eq(2)").val();
+               obj.salary = $("input:last").val();
+               //set the data to the pDisplay.
+               let jsonData = JSON.stringify(obj);
+               $("#pDisplay").html(jsonData);          
+            })
+        }
+        $(document).ready(init);
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="#">User Registration</a>
+    </nav>
+    <div>
+        <h2>User Registration Form</h2>
+        <p><input type="number" placeholder="Enter the ID"></p>
+        <p><input type="text" placeholder="Enter the Name"></p>
+        <p><input type="email" placeholder="Enter the Email"></p>
+        <p><input type="number" placeholder="Enter the Salary"></p>
+        <p>
+            <button>Display Info</button>
+        </p>
+    </div>
+    <div>
+        <p id="pDisplay"></p>
+    </div>
+</body>
+</html>

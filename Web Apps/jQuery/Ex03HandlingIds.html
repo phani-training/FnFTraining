@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./lib/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script>
+            function init() {
+                $("div").slideUp(2000);
+                $("a").click(()=>{
+                    $("div").slideDown(2000, function(){
+                        $("a").hide();
+                    })
+                });
+                $("button").click(function () {
+                   //take the values entered by the us
+                   const book = {};
+                   book.id =$("#txtId").val()
+                   book.title =$("#txtTitle").val();
+                   alert(JSON.stringify(book)) 
+                   $("div").slideUp(2000, ()=>{
+                    $("a").show();
+                   });
+                });
+            }
+            $(document).ready(init);
+        </script>
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="h2 m-4">Book Details</h2>
+    <nav>
+        <a href="#" class="btn btn-secondary">Add Book Details</a>
+    </nav>
+    <div class="col-md-4 m-4">
+        <p>
+            <input type="text" class="form-control" placeholder="BookId" id="txtId">
+        </p>
+        <p>
+            <input class="form-control" type="text" placeholder="Book Title" id="txtTitle">
+        </p>
+        <p>
+            <input class="form-control" type="text" placeholder="Book Author" id="txtAuthor">
+        </p>
+        <p>
+            <input class="form-control" type="number" placeholder="Book Price" id="txtPrice">
+        </p>
+        <p>
+            <button class="btn btn-danger">Save changes</button>
+        </p>
+    </div>
+</body>
+</html>
