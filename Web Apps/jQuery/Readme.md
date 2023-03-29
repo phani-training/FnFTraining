@@ -1,4 +1,4 @@
-### JSON server usage
+## JSON server usage
 1. Download the JSON Server package from NPM
 ```
 npm install -g json-server
