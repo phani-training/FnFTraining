@@ -1,0 +1,15 @@
+{
+  "name": "expressjs",
+  "version": "1.0.0",
+  "description": "- Express is a 3rd party Nodejs Framework for building Rich internet based Applications in a faster manner. It provides APIs to create Web Apps in a simple, yet effective manner. \r - Express comes with APIs for creating MVC Apps, REST APIs, normal Internet based Web Apps. \r - Majorly Express is used to create REST APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
