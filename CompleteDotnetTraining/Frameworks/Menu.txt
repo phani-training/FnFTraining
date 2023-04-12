@@ -1,0 +1,5 @@
+﻿~~~~~~~~~~~~~~~~~~~SERIALIZATION EXAMPLE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TO SAVE DATA------------------>PRESS 1
+TO READ DATA------------------>PRESS 2
+PS: ANY OTHER KEY IS CONSIDERED AS EXIT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
