@@ -59,12 +59,12 @@ Insert into tblDept(DeptName) Values('Utilities')
 SELECT * from tblDept
 GO --GO Statement is the part of SSMS which allows to execute batches of SQL statements with an optional numeric value for executing so many no of times.
 
-Insert into tblEmployee values('Phani Raj B.N', 'phanirajbn@gmail.com', 9945205684, 56000, 1)
-Insert into tblEmployee values('Ramnath Nishad', 'ramnathn@gmail.com', 9856444321, 36000, 2)
-Insert into tblEmployee values('Banu Prakash', 'banu_p@gmail.com', 9845078665, 76000, 3)
-Insert into tblEmployee values('Vinod K', 'vinodk@gmail.com', 9449184478, 46000, 4)
-Insert into tblEmployee values('JoyDip Mondal', 'joydip@gmail.com', 9988766778, 45000, 5)
-Insert into tblEmployee values('Murali Sharma', 'muralisharma.com', 9945884123, 56000, 6)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('Phani Raj B.N', 'phanirajbn@gmail.com', 9945205684, 56000, 1)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('Ramnath Nishad', 'ramnathn@gmail.com', 9856444321, 36000, 2)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('Banu Prakash', 'banu_p@gmail.com', 9845078665, 76000, 3)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('Vinod K', 'vinodk@gmail.com', 9449184478, 46000, 4)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('JoyDip Mondal', 'joydip@gmail.com', 9988766778, 45000, 5)
+Insert into tblEmployee(EmpName, EmpEmail, EmpPhone, EmpSalary, DeptId) values('Murali Sharma', 'muralisharma.com', 9945884123, 56000, 6)
 
 --Update tableName Set colName = 'Value'..... WHERE COLNAME = 'someconditionalVal' 
 Update tblEmployee Set DeptId = 2 Where EmpId > 0
@@ -76,5 +76,37 @@ TRUNCATE table tblEmployee
 
 ---Assignment--------------------
 --Create a new table called tblCity with Id and CityName as Columns. Add some 10 Cities to it. 
+Create table tblCity(
+	CityId int primary key identity(1, 1),
+	CityName varchar(30) NOT NULL
+)
+
+INSERT INTO tblCity(CityName) VALUES ('Madrid');
+INSERT INTO tblCity(CityName) VALUES ('Barcelona');
+INSERT INTO tblCity(CityName) VALUES ('Pune');
+INSERT INTO tblCity(CityName) VALUES ('Bangalore');
+INSERT INTO tblCity(CityName) VALUES ('Prague');
+INSERT INTO tblCity(CityName) VALUES ('Bombay');
+INSERT INTO tblCity(CityName) VALUES ('Buenos Aires');
+INSERT INTO tblCity(CityName) VALUES ('Santiago');
+INSERT INTO tblCity(CityName) VALUES ('Miami');
+INSERT INTO tblCity(CityName) VALUES ('Madras');
+INSERT INTO tblCity(CityName) VALUES ('Hyderabad');
+
+
 --Add a new column to the tblEmployee called CityId and set the CityID as the foreign key to the tblCity.
+Alter table tblEmployee
+Add CityId int references tblCity(CityId)
+
 --Update the CityId of the tblEmployee in a random manner. 
+DECLARE @Id INT = 1;
+WHILE @Id <= (SELECT COUNT(*) FROM TBLEMPLOYEE)
+BEGIN
+Update tblEmployee
+Set CityId = RAND() * (11-1) + 1
+Where EmpId = @Id
+Set @Id = @Id + 1
+END
+
+select * from tblEmployee
+
