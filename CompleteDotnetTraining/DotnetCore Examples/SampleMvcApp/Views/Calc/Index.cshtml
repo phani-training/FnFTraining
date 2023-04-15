@@ -1,0 +1,31 @@
+﻿@{
+    List<SelectListItem> options = new List<SelectListItem>();
+    if(ViewBag.dpList != null)//Extract the ViewBag data...
+    {
+        options = ViewBag.dpList;
+    }
+}
+<html>
+    <head>
+        <title>Calc Program</title>
+    </head>
+    <body>
+        <h1> Math Calc Program</h1>
+        <hr/>
+    @using (Html.BeginForm("DisplayResult", "Calc"))
+        {
+            <div>
+                <input type="number" name="txtNum1" placeholder="Enter First Value" />
+                @Html.DropDownList("operands", options)
+                <input type="number" name="txtNum2" placeholder="Enter Second Value" />
+                <button>Get Result</button>
+            </div>
+        }
+    @{
+        if(ViewData["Result"] != null)
+        {
+            <div>The result of this Operation: @ViewData["Result"]</div>
+        }
+    }
+    </body>
+</html>

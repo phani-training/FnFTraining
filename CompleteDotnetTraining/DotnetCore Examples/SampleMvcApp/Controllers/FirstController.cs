@@ -35,3 +35,4 @@ namespace SampleMvcApp.Controllers
         }
     }
 }
+//Create an Interface IEmployeeRepo and implement the interface with JSON serialization. 

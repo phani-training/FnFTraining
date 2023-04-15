@@ -1,0 +1,47 @@
+Scaffold-DbContext "Server=.\SQLEXPRESS;Database=FnFTraining;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Create an ASP.NET Core Empty Project
+Create 3 Folders for Models, Views and Controllers.
+
+For the Code First Approach:
+Download the Following packages from the Nuget:
+Open the PCM: Run the commands: install-package packageName
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+Create the Model Class and its DBContext class(Code is shared in the DataModel.cs)
+Ensure U give provide the Connection String in a proper manner->DBName, ServerName
+
+
+Create the interface and the implementor class as defined in the DataModel.cs File.
+
+
+Provide the Dependency Injection for the interface in the Program.cs file. builder.Services.AddTransient<IBookStore, BookRepo>();
+
+U can run the following commands for DB Migration:
+add-migration firstMigration-v2.0
+update-database
+
+This will generate the Tables required for the Database. 
+ 
+
+Build the Application. 
+Create Controller and Actions and generate the Appropriate Views. 
+Test the Application. 
+
+
+For the DB First Approach:
+Create the required Tables in the database(Better to create new Database and Try)
+Run the Command: Scaffold-DbContext "Server=.\SQLEXPRESS; Database=FnFTraining; Trusted_Connection=True; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Ensure that the Servername and DBName are appropriately modified. 
+Once the Classes are generated, continue in creating the Interface and its Implementor class. 
+Apply DI feature in the Program.cs for the Interface object. 
+Create the Controller and Actions and generate the views required for UR program. 
+Test the Application. 
+
+
+
+
+
+

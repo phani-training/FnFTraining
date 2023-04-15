@@ -1,3 +1,5 @@
+using SampleMvcApp.Models;
+
 namespace SampleMvcApp
 {
     public class Program
@@ -11,13 +13,15 @@ namespace SampleMvcApp
             //Configuration = new ConfigurationBuilder().Build();
             //Inject some dependencies if U want....
             //Add Services to UR Application like Mvc Service
-            //builder.Services.AddMvc();
+            builder.Services.AddMvc();
             builder.Services.AddControllersWithViews();
+            
+            builder.Services.AddTransient<IBookStore, BookRepo>();
             var app = builder.Build();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=First}/{action=TestMe}/{id?}"
+                pattern: "{controller=Home}/{action=Index}/{id?}"
             );
 
             app.Run();

@@ -1,0 +1,23 @@
+﻿@model SampleMvcApp.Models.TblBook
+
+<h1>Add New Book to Database</h1>
+<div>
+    @using (Html.BeginForm())
+    {
+            <div>
+                <p>
+                    Book Title: @Html.EditorFor(m => m.BookTitle)
+                </p>
+                <p>
+                    Book Author: @Html.EditorFor(m => m.Author)
+                </p>
+                <p>
+                    Book Publisher: @Html.EditorFor(m => m.BookPublisher)
+                </p>
+                <p>
+                    Book Price: @Html.EditorFor(m => m.BookPrice)
+                </p>
+            </div>
+            <button>Save Changes</button>
+    }
+</div>

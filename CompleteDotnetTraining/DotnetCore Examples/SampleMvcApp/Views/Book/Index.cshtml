@@ -1,0 +1,29 @@
+﻿@model List<SampleMvcApp.Models.TblBook>
+<style>
+    .card{
+        display: inline-block;
+        border: 2px solid red;
+        border-radius: 5px;
+        padding:5px;
+        background-color: lightcyan;
+        width:30%;
+        text-shadow: 2px 2px 2px lightblue
+    }
+</style>
+<h1>Book Store Management</h1>
+<div>
+    @Html.ActionLink("Add New Book", "AddBook")
+</div>
+@foreach(var book in Model)
+{
+    <div class="card">
+    <h2>@book.BookTitle</h2>
+    <hr/>
+        <p>Cost: @book.BookPrice</p>
+        <p>Author :@book.Author</p>
+        <p>Published By :@book.BookPublisher</p>
+        <p>
+            @Html.ActionLink("Edit", "Edit" , new { id = book.BookId })
+        </p>
+    </div>
+}
